@@ -25,10 +25,6 @@ const passwordReducer = (state, action) => {
 };
 
 const Login = (props) => {
-  // const [enteredEmail, setEnteredEmail] = useState('');
-  // const [emailIsValid, setEmailIsValid] = useState();
-  // const [enteredPassword, setEnteredPassword] = useState("");
-  // const [passwordIsValid, setPasswordIsValid] = useState();
   const [formIsValid, setFormIsValid] = useState(false);
 
   const [emailState, dispatchEmail] = useReducer(emailReducer, {
@@ -49,19 +45,22 @@ const Login = (props) => {
     };
   }, []);
 
-  // Object destructuring => we pass specific properties instead of the entire object as a dependency.
+  // Object destructuring => passing specific properties instead of the entire object as a dependency in useEffect below
   const { isValid: emailIsValid } = emailState;
   const { isValid: passwordIsValid } = passwordState;
 
-  // Note: - useEffect with no [] - runs on every state change
+  // Note about useEffect():
+
+  //       - useEffect with no [] - runs on every state change
   //       - useEffect with [] but no dependencies - runs on first render, no more
   //       - useEffect with [dependencies] - runs when the component is reevaluated and the dependencies (state) changed
 
-  // Clean-up function:
-  // - with dependencies useEffect - return () => { }; runs before after the first render
-  // - with no dependencies the clean-up (return()) would run when the component is removed from the dom
+  // Note about clean-up function:
 
-  // Function I want to be executed only when array content is changed (dependencies)
+  // - With dependencies useEffect - return () => { }; runs before after the first render
+  // - With no dependencies the clean-up (return()) would run when the component is removed from the dom
+
+  // Function I want to be executed only when dependencies suffer a change
   // in this case: sets the form as valid if email and password are valid
   // input is being reevaluated every 500ms to check for validity
 
