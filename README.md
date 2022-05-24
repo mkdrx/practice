@@ -1,6 +1,8 @@
-# Practicing concepts: useEffect, useReducer & useContext
+# Practicing concepts:
 
-## Based on Udemy's React Course - Maximilian Schwarzmüller
+## useEffect, useReducer, useContext, useRef, useImperativeHandle
+
+### Based on Udemy's React Course - Maximilian Schwarzmüller
 
 **To install dependencies:**
 
