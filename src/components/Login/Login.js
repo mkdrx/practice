@@ -27,6 +27,7 @@ const passwordReducer = (state, action) => {
 const Login = (props) => {
   const [formIsValid, setFormIsValid] = useState(false);
 
+  // useReducer content: [initialState, functionThatUpdatesState] = useReducer(reducerFunction, initialState)
   const [emailState, dispatchEmail] = useReducer(emailReducer, {
     value: "",
     isValid: null,
@@ -49,10 +50,10 @@ const Login = (props) => {
   const { isValid: emailIsValid } = emailState;
   const { isValid: passwordIsValid } = passwordState;
 
-  // Note about useEffect():
+  // Note about useEffect() - runs after every component render cycle:
 
   //       - useEffect with no [] - runs on every state change
-  //       - useEffect with [] but no dependencies - runs on first render, no more
+  //       - useEffect with [] - runs on first render, no more
   //       - useEffect with [dependencies] - runs when the component is reevaluated and the dependencies (state) changed
 
   // Note about clean-up function:
